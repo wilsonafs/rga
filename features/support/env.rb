@@ -3,8 +3,10 @@ require "selenium-webdriver"
 require "site_prism"
 require "pry-byebug"
 
-#Chrome Headless
-Capybara.register_driver :selenium do |app|
+BROWSER = ENV['BROWSER']
+
+# Chrome Headless
+Capybara.register_driver :headless do |app|
     args = %w[window-size=1440,900 headless disable-gpu]
 
     caps = Selenium::WebDriver::Remote::Capabilities.chrome(
@@ -17,12 +19,11 @@ Capybara.register_driver :selenium do |app|
 end
 
 Capybara.configure do |config|
-    config.default_driver = :selenium
+    if BROWSER 
+        config.default_driver = BROWSER.to_sym
+    else
+        config.default_driver = :selenium_chrome
+    end
     config.default_max_wait_time = 10
 end
 
-# Chrome with GPU
-# Capybara.configure do |config|
-#     config.default_driver = :selenium_chrome
-#     config.default_max_wait_time = 8
-# end

@@ -18,5 +18,7 @@ We have the scenarios at **features >> specs**
 * Page Objects
 
 ## Running the tests
-* First run ```bundle install``` to install the dependences
-* Then run ```BROWSER=headless cucumber``` to run in headless mode or just ```cucumber```to run default with Chrome
+* First run ```bundle install``` to install the dependencies
+* Then run ```BROWSER=headless cucumber``` to run in headless mode
+* BROWSER=safari to run with Safari
+* ```cucumber``` to run default with Chrome

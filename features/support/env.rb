@@ -5,7 +5,6 @@ require "pry-byebug"
 
 BROWSER = ENV['BROWSER']
 
-# Chrome Headless
 Capybara.register_driver :headless do |app|
     args = %w[window-size=1440,900 headless disable-gpu]
 

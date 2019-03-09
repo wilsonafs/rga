@@ -17,6 +17,10 @@ Capybara.register_driver :headless do |app|
     Capybara::Selenium::Driver.new(app, browser: :chrome, desired_capabilities: caps)
 end
 
+Capybara.register_driver :safari do |app|
+    Capybara::Selenium::Driver.new(app, browser: :safari)
+end
+
 Capybara.configure do |config|
     if BROWSER 
         config.default_driver = BROWSER.to_sym
